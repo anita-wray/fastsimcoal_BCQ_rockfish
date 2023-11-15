@@ -1,0 +1,15 @@
+// Priors and rules file
+// *********************
+
+[PARAMETERS]
+//#isInt? #name   #dist.#min  #max
+//all Ns are in number of haploid individuals
+1	NMC$	unif	200	400000	output
+1	NMB$	unif	200	400000	output
+1	NMQ$	unif	200	400000	output
+1	NANC01$	unif	200	400000	output
+1	NANC02$	unif	200	400000	output
+1	TD1$	unif	140000	160000	output
+1	TD2$	unif	240000	260000	output
+
+[COMPLEX PARAMETERS]
