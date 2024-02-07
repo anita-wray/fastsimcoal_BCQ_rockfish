@@ -4,14 +4,16 @@
 [PARAMETERS]
 //#isInt? #name   #dist.#min  #max
 //all Ns are in number of haploid individuals
-1	NMC$	unif	200	400000	output
-1	NMB$	unif	200	400000	output
-1	NMQ$	unif	200	400000	output
-1	NANC01$	unif	200	400000	output
-1	NANC02$	unif	200	400000	output
-1	TD1$	unif	140000	160000	output
-1	TD2$	unif	240000	260000	output
-1	TMIGSTART$	unif	100	140000	output
-0	MIG1$	unif	1e-17	0.01	output
+1	NMC	unif	200	400000	output
+1	NMB	unif	200	400000	output
+1	NMQ	unif	200	400000	output
+1	TMIGSTART	unif	100	140000	output bounded
+1	TD1	unif	 TMIGSTART	  160000	output bounded paramInRange
+1	TD2	unif	 TD1	  260000	output bounded   paramInRange
+0	MIG20	unif	1e-17	0.01	output
+0	MIG21    unif    1e-17   0.01    output
+1	ANCSIZE	unif	200	400000	output
+1 	NAOFF	unif	200	400000	output
 
 [COMPLEX PARAMETERS]
+
