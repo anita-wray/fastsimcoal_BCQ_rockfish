@@ -13,7 +13,9 @@ Divergence time was from: https://pubmed.ncbi.nlm.nih.gov/17320419/
 Mutation rate was from: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8923369/#SD1
 
 ### Easy SFS
-I used [easySFS](https://github.com/isaacovercast/easySFS) to convert VCF files into SFS files for fastsimcoal. This program was built specifically for RADseq data and accounts for missing data during the conversion. For this dataset, the best projection values were BR_SPS = 38; CO_SPS =  40; QB_SPS = 30. Projection values reported by easySFS are not # of individuals, but 2x # of individuals for diploids
+I used [easySFS](https://github.com/isaacovercast/easySFS) to convert VCF files into SFS files for fastsimcoal. This program was built specifically for RADseq data and accounts for missing data during the conversion. For this dataset, the best projection values were BR_SPS = 38; CO_SPS =  40; QB_SPS = 30. Projection values reported by easySFS are not # of individuals, but 2x # of individuals for diploids. 
+
+```  ../easySFS.py -i ${PREFIX}.bs.$i.vcf.gz -p ${pop_file} -a -f --proj 38,40,30```
 
 ### Fastsimcoal Run
 To run fastsimcoal, I ran the below code 100 times:
