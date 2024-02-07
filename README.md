@@ -1,5 +1,5 @@
 # fastsimcoal_BCQ_rockfish
-This README outlines the process for running fastsimcoal on the dataset for ____. Most of the code was modified for use based on https://speciationgenomics.github.io/fastsimcoal2/ which I highly recommend for first-time fastsimcoal users. Below is the step-by-step process, with applicable script names included for easy reference. 
+This README outlines the process for running fastsimcoal on the dataset for ____. Most of the code was modified for use based on [this workshop](https://speciationgenomics.github.io/fastsimcoal2/) which I highly recommend for first-time fastsimcoal users. Below is the step-by-step process, with applicable script names included for easy reference. 
 
 ### Models
 I attempted to model three scenarios: 
@@ -13,7 +13,7 @@ Divergence time was from: https://pubmed.ncbi.nlm.nih.gov/17320419/
 Mutation rate was from: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8923369/#SD1
 
 ### Easy SFS
-I used easySFS to convert VCF files into SFS files for fastsimcoal. This program was built specifically for RADseq data and accounts for missing data during the conversion. For this dataset, the best projection values were BR_SPS = 38; CO_SPS =  40; QB_SPS = 30. Projection values reported by easySFS are not # of individuals, but 2x # of individuals for diploids
+I used [easySFS](https://github.com/isaacovercast/easySFS) to convert VCF files into SFS files for fastsimcoal. This program was built specifically for RADseq data and accounts for missing data during the conversion. For this dataset, the best projection values were BR_SPS = 38; CO_SPS =  40; QB_SPS = 30. Projection values reported by easySFS are not # of individuals, but 2x # of individuals for diploids
 
 ### Fastsimcoal Run
 To run fastsimcoal, I ran the below code 100 times:
@@ -25,4 +25,4 @@ This command runs 100 iterations of fastsimcoal using a MAF (-m) while ignoring 
 As mentioned above, this was run 100 times each in a separate 'run' folder. The best run was chosen based on the minimum difference between the MaxEstLhood	and MaxObsLhood using the find_best_fsc_run.sh script.
 
 ### Boostrapping
-To bootstrap the data, I used a block bootstrapping approach. This accounts for linkage in my dataset since I have many SNPs along the same chromosome. I modified the script from [this workshop](https://speciationgenomics.github.io/fastsimcoal2/) for use in R, since I was on a Mac and was unable to use shuf. Once I had bootstraps, I ran 10 bs iterations 10 times. I then chose the best run from those values, and calculated a 95% CI using the getCI.R script (modified from https://github.com/OB-lab/James_et_al._2021-MBE/tree/master). 
+To bootstrap the data, I used a block bootstrapping approach. This accounts for linkage in my dataset since I have many SNPs along the same chromosome. I modified the script from [this workshop](https://speciationgenomics.github.io/fastsimcoal2/) for use in R, since I was on a Mac and was unable to use shuf. Once I had bootstraps, I ran 10 bs iterations 10 times. I then chose the best run from those values, and calculated a 95% CI using the getCI.R script (modified from [Maddie James' github repository](https://github.com/OB-lab/James_et_al._2021-MBE/tree/master)). 
